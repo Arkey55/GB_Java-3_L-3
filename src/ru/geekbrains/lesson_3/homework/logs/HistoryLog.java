@@ -4,9 +4,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Logger {
-    File file;
-    public Logger(File file) {
+public class HistoryLog {
+    private File file;
+    public HistoryLog(File file) {
         this.file = file;
     }
 
@@ -14,7 +14,8 @@ public class Logger {
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter(file, true)
         )) {
-            writer.write(msg + "\n");
+            writer.newLine();
+            writer.write(msg);
         } catch (IOException e) {
             e.printStackTrace();
         }

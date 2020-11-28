@@ -1,6 +1,6 @@
 package ru.geekbrains.lesson_3.homework.apps;
 
-import ru.geekbrains.lesson_3.homework.logs.Logger;
+import ru.geekbrains.lesson_3.homework.logs.HistoryLog;
 
 import java.io.*;
 import java.net.Socket;
@@ -10,8 +10,8 @@ public class ClientApp {
 
     public ClientApp(File file) {
         try {
-            Logger logger = new Logger(file);
-            logger.readFromLog();
+            HistoryLog log = new HistoryLog(file);
+            log.readFromLog();
             Socket socket = new Socket("localhost", 8080);
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
@@ -20,7 +20,7 @@ public class ClientApp {
                 try {
                     while (true){
                         String msg = in.readUTF();
-                        logger.writeToLog(msg);
+                        log.writeToLog(msg);
                         System.out.println(msg);
                     }
                 } catch (IOException e){

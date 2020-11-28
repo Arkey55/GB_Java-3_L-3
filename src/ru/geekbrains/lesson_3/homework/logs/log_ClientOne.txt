@@ -1,0 +1,6 @@
+
+nick1 enters the chat
+nick1 is logged in
+nick1: hi all
+nick1: how are you
+nick1: left the chat
